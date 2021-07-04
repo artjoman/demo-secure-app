@@ -11,4 +11,10 @@ export class AppController {
   getHello(): string {
     return this.appService.getHello();
   }
+
+  @Get('users')
+  @UseGuards(AuthGuard('basic'))
+  getusers(): any {
+    return [{firstName: "Artjoms"}];
+  }
 }
