@@ -1,0 +1,14 @@
+version: '3'
+services:
+  database:
+    image: "postgres" # use latest official postgres version
+    env_file:
+      - database.env # configure postgres
+    ports:
+      - 5434:5432
+  adminer_container:
+    image: adminer:latest
+    environment:
+        ADMINER_DEFAULT_SERVER: database
+    ports:
+        - 8081:8080
